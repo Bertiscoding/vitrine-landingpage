@@ -1,14 +1,3 @@
-import * as React from "react"
+import Homepage from './Homepage.jsx';
 
-const IndexPage = () => {
-  return (
-    <main>
-      <title>Home Page</title>
-      <h1>
-        This is our vitrine landingpage!
-      </h1>
-    </main>
-  )
-}
-
-export default IndexPage
+export default Homepage;
