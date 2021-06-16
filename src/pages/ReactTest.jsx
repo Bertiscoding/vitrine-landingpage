@@ -3,7 +3,7 @@ import "../styles/main.scss"
 import Form from './Form'
 import HeaderText from '../markdown/headertext.mdx'
 
-const Homepage = () => {
+const ReactTest = () => {
  return (
    <main>
     <div className="container">
@@ -17,4 +17,4 @@ const Homepage = () => {
  )
 }
 
-export default Homepage
+export default ReactTest

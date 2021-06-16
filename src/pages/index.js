@@ -1,3 +1,3 @@
-import Homepage from './Homepage.jsx';
+import ReactTest from './ReactTest.jsx';
 
-export default Homepage;
+export default ReactTest;
