@@ -1,5 +1,5 @@
 async function createUserInput(parent, args, context, info) {
- const newUserInput = await context.prisma.link.create({
+ const newUserInput = await context.prisma.user.create({
    data: {
      email: args.email,
      message: args.message,
@@ -7,4 +7,8 @@ async function createUserInput(parent, args, context, info) {
  })
  context.pubsub.publish("NEW_USER_INPUT", newUserInput)
  return newUserInput
+}
+
+module.exports = {
+  createUserInput,
 }

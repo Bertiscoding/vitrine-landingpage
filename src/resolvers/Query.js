@@ -1,20 +1,14 @@
 async function getUserInput(parent, args, context, info) {
- const where = args.filter
-   ? {
-     OR: [
-       { email: { contains: args.filter } },
-       { message: { contains: args.filter } },
-     ],
-   }
-   : {}
-
- const userinput = await context.prisma.link.findMany({
-   where,
- })
-
+ const userinput = await context.prisma.user.findFirst({where: { id: parseInt(args.id) }})
  return userinput
 }
 
+async function getAllUserInput(parent, args, context, info) {
+  const userinput = await context.prisma.user.findMany()
+  return userinput
+ }
+
 module.exports = {
  getUserInput,
+ getAllUserInput,
 }

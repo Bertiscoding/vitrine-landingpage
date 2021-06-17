@@ -1,11 +1,22 @@
 import React, { useState } from 'react'
+import { gql, useMutation } from '@apollo/client'
 
 const Form = () => {
  const [formState, setFormState] = useState({
   email: undefined,
   message: undefined,
-  gdpr: false
+  // gdpr: false
  })
+ const [createUserInput] = useMutation(CREATE_USERINPUT);
+
+ const CREATE_USERINPUT = gql`
+  mutation CreateUserInput($type: String!) {
+    createUserInput(type: $type) {
+      email,
+      message
+    }
+  }
+ `;
 
  const handleChange = (event) => {
   const { name, value } = event.target;
@@ -15,7 +26,9 @@ const Form = () => {
  const handleSubmit = (event) => {
   event.preventDefault()
   console.log('formState', formState)
+  createUserInput({variables: { user: formState} });
  }
+ 
  return (
   <form onSubmit={handleSubmit}>
   <div>
@@ -37,7 +50,7 @@ const Form = () => {
     onChange={handleChange}
    ></textarea>
   </div>
-  <div>
+  {/* <div>
    <input
     id="gdpr"
     name="gdpr"
@@ -45,7 +58,7 @@ const Form = () => {
     onChange={handleChange}
    />
    <label htmlFor="gdpr">GDPR</label>
-  </div>
+  </div> */}
   <button
     type="submit"
    >Submit</button>
