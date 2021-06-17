@@ -2,14 +2,7 @@ import React, { useState } from 'react'
 import { gql, useMutation } from '@apollo/client'
 
 const Form = () => {
- const [formState, setFormState] = useState({
-  email: undefined,
-  message: undefined,
-  // gdpr: false
- })
- const [createUserInput] = useMutation(CREATE_USERINPUT);
-
- const CREATE_USERINPUT = gql`
+  const CREATE_USERINPUT = gql`
   mutation CreateUserInput($type: String!) {
     createUserInput(type: $type) {
       email,
@@ -17,6 +10,13 @@ const Form = () => {
     }
   }
  `;
+  const [formState, setFormState] = useState({
+  email: undefined,
+  message: undefined,
+  // gdpr: false
+ })
+
+const [createUserInput] = useMutation(CREATE_USERINPUT);
 
  const handleChange = (event) => {
   const { name, value } = event.target;
@@ -28,7 +28,7 @@ const Form = () => {
   console.log('formState', formState)
   createUserInput({variables: { user: formState} });
  }
- 
+
  return (
   <form onSubmit={handleSubmit}>
   <div>
