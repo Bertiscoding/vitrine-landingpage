@@ -12,7 +12,3 @@ type UserInput {
 type Mutation {
  createUserInput(email: String!, message: String!): UserInput
 }
-
-type Subscription {
-  newUserInput: UserInput
-}

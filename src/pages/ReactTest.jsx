@@ -1,6 +1,6 @@
 import React from 'react'
 import "../styles/main.scss"
-import Form from './Form'
+import Form from '../components/Form'
 import HeaderText from '../markdown/headertext.mdx'
 
 const ReactTest = () => {
