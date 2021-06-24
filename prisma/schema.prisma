@@ -18,4 +18,5 @@ model User {
   createdAt   DateTime @default(now())
   email       String   @unique
   message     String
+  gdpr        Boolean  @default(false)
 }

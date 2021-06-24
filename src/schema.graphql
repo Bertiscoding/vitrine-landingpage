@@ -1,14 +1,15 @@
 type Query {
- getAllUserInput: [UserInput]
- getUserInput(id: ID!): UserInput
+  getAllUserInput: [UserInput]
+  getUserInput(id: ID!): UserInput
 }
 
 type UserInput {
   id: ID!
   email: String!
   message: String
+  gdpr: Boolean!
 }
 
 type Mutation {
- createUserInput(email: String!, message: String): UserInput
+  createUserInput(email: String!, message: String, gdpr: Boolean!): UserInput
 }

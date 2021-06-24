@@ -1,18 +1,16 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
 import "../styles/main.scss"
-import Form from '../components/Form'
+import Form from '../components/Form/Form'
 
 const Layout = ({ children }) => {
   const reusableComponents = { Form }
   return (
-    <>
-      <p>Header</p>
-      <hr/>
+    <div className="container-mdx">
+      <p className="margin-y-xxl">Header from Layout</p>
         <MDXProvider components={reusableComponents}>{children}</MDXProvider>
-      <hr/>
-      <p>Footer</p>
-    </>
+      <p className="margin-y-xxl">Footer from Layout</p>
+    </div>
   )
 
 }
